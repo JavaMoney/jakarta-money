@@ -1,16 +1,31 @@
-# Compiled class file
 *.class
-
-# Log file
 *.log
+~*
 
-# BlueJ files
-*.ctxt
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+LICENSE
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Maven
+target/
+.m2/
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+dependency-reduced-pom.xml
+release.properties
+buildNumber.properties
+settings.xml
+.flattened-pom.xml
 
-# Package Files #
+# Gradle
+.gradle/
+build/
+
+# Package Files
 *.jar
 *.war
 *.nar
@@ -19,5 +34,60 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# JetBrains
+.idea/
+*.ipr
+*.iws
+*.iml
+*.releaseBackup
+out/
+.idea_modules/
+atlassian-ide-plugin.xml
+
+# Eclipse
+.settings/
+.settings
+.project
+.classpath
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.externalToolBuilders/
+*.launch
+.factorypath
+.target
+.springBeans
+.recommenders/
+.apt_generated/
+.apt_generated_test/
+.cache-main
+.scala_dependencies
+.worksheet
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+.nb-gradle/
+
+# MacOS
+.DS_Store
+profile
+
+# Asciidoctor
+.asciidoctor/
+
+# Vim
+*.swp
