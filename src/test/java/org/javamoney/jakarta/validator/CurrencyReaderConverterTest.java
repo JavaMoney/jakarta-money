@@ -79,14 +79,12 @@ public class CurrencyReaderConverterTest {
 		CurrencyReaderConverter converter = new CurrencyReaderConverter(currency);
 		assertFalse(converter.getCurrencies().isEmpty());
 
-//		assertThat(converter.getCurrencies().toArray(),
-//				Matchers.arrayContaining(Monetary.getCurrency(Locale.US), Monetary.getCurrency(Locale.UK)));
 	}
 
 	@Test
 	public void shouldReturnsErrorOnElementsAcceptedWhenLocaleIsWrong(){
-		Assertions.assertThrows(IllegalArgumentException.class, () -> new CurrencyReaderConverter(currency));
 		when(currency.currenciesFromLocales()).thenReturn(new String[]{"en"});
+		Assertions.assertThrows(IllegalArgumentException.class, () -> new CurrencyReaderConverter(currency));
 	}
 
 }

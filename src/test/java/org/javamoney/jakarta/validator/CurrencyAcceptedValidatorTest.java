@@ -43,8 +43,7 @@ public class CurrencyAcceptedValidatorTest {
 
 	@BeforeEach
 	public void setup() {
-		when(constraintAnnotation.currencies()).thenReturn(new String[0]);
-		when(constraintAnnotation.currenciesFromLocales()).thenReturn(new String[0]);
+
 		currencyValidator = new CurrencyAcceptedValidator();
 	}
 
@@ -56,6 +55,8 @@ public class CurrencyAcceptedValidatorTest {
 
 	@Test
 	public void shouldReturnsTrueWhenCurrencyIsAllowed() {
+		when(constraintAnnotation.currencies()).thenReturn(new String[0]);
+		when(constraintAnnotation.currenciesFromLocales()).thenReturn(new String[0]);
 		String currencyCodAllowed = "USD";
 		when(constraintAnnotation.currencies()).thenReturn(new String[]{currencyCodAllowed});
 		currencyValidator.initialize(constraintAnnotation);
@@ -64,6 +65,8 @@ public class CurrencyAcceptedValidatorTest {
 
 	@Test
 	public void shouldReturnsFalseWhenCurrencyIsDenied() {
+		when(constraintAnnotation.currencies()).thenReturn(new String[0]);
+		when(constraintAnnotation.currenciesFromLocales()).thenReturn(new String[0]);
 		String currencyCodAllowed = "USD";
 		when(constraintAnnotation.currencies()).thenReturn(new String[]{currencyCodAllowed});
 		currencyValidator.initialize(constraintAnnotation);

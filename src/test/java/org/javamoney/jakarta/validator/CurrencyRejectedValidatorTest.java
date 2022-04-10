@@ -38,23 +38,24 @@ public class CurrencyRejectedValidatorTest {
 	@Mock
 	private CurrencyRejected constraintAnnotation;
 
-	private ConstraintValidatorContext context;
+	private ConstraintValidatorContext context = null;
 
 	@BeforeEach
 	public void setup() {
-		when(constraintAnnotation.currencies()).thenReturn(new String[0]);
-		when(constraintAnnotation.currenciesFromLocales()).thenReturn(new String[0]);
+
 		currencyValidator = new CurrencyRejectedValidator();
 	}
 
 
 	@Test
-	public void shouldReturnsTrueWhenCurrecyIsNull() {
+	public void shouldReturnsTrueWhenCurrencyIsNull() {
 		assertTrue(currencyValidator.isValid(null, context));
 	}
 
 	@Test
 	public void shouldReturnsFalseWhenCurrencyIsRejected() {
+		when(constraintAnnotation.currencies()).thenReturn(new String[0]);
+		when(constraintAnnotation.currenciesFromLocales()).thenReturn(new String[0]);
 		String currencyCodAllowed = "USD";
 		when(constraintAnnotation.currencies()).thenReturn(new String[]{currencyCodAllowed});
 		currencyValidator.initialize(constraintAnnotation);
@@ -63,6 +64,8 @@ public class CurrencyRejectedValidatorTest {
 
 	@Test
 	public void shouldReturnsTrueWhenCurrencyAccepted() {
+		when(constraintAnnotation.currencies()).thenReturn(new String[0]);
+		when(constraintAnnotation.currenciesFromLocales()).thenReturn(new String[0]);
 		String currencyCodAllowed = "USD";
 		when(constraintAnnotation.currencies()).thenReturn(new String[]{currencyCodAllowed});
 		currencyValidator.initialize(constraintAnnotation);
