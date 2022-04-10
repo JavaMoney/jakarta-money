@@ -37,6 +37,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.javamoney.moneta</groupId>
+            <artifactId>moneta-core</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+        <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-web-api</artifactId>
             <version>8.0.0</version>
@@ -48,8 +53,6 @@
             <version>2.0.2</version>
             <scope>provided</scope>
         </dependency>
-
-
         <!--Test-->
         <dependency>
             <groupId>org.jboss.weld.se</groupId>
