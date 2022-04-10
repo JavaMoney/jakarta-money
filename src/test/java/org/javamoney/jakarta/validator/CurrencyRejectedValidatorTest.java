@@ -38,7 +38,8 @@ public class CurrencyRejectedValidatorTest {
 	@Mock
 	private CurrencyRejected constraintAnnotation;
 
-	private ConstraintValidatorContext context = null;
+	@Mock
+	private ConstraintValidatorContext context;
 
 	@BeforeEach
 	public void setup() {

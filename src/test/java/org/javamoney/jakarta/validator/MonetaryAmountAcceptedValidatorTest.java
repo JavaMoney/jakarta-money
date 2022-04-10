@@ -49,7 +49,7 @@ public class MonetaryAmountAcceptedValidatorTest {
 
 
 	@Test
-	public void shouldReturnsTrueWhenCurrecyIsNull() {
+	public void shouldReturnsTrueWhenCurrencyIsNull() {
 		assertTrue(monetaryAmountValidator.isValid(null, context));
 	}
 
@@ -61,7 +61,8 @@ public class MonetaryAmountAcceptedValidatorTest {
 		when(constraintAnnotation.currencies()).thenReturn(new String[]{currencyCodAllowed});
 		monetaryAmountValidator.initialize(constraintAnnotation);
 
-		assertTrue(monetaryAmountValidator.isValid(Money.of(10,Monetary.getCurrency(currencyCodAllowed)), context));
+		assertTrue(monetaryAmountValidator.isValid(Money.of(10,Monetary.getCurrency(currencyCodAllowed)),
+				context));
 	}
 
 	@Test
@@ -71,7 +72,8 @@ public class MonetaryAmountAcceptedValidatorTest {
 		String currencyCodAllowed = "USD";
 		when(constraintAnnotation.currencies()).thenReturn(new String[]{currencyCodAllowed});
 		monetaryAmountValidator.initialize(constraintAnnotation);
-		assertFalse(monetaryAmountValidator.isValid(Money.of(10, Monetary.getCurrency("EUR")), context));
+		assertFalse(monetaryAmountValidator.isValid(Money.of(10, Monetary.getCurrency("EUR")),
+				context));
 	}
 
 	@Test
@@ -85,7 +87,8 @@ public class MonetaryAmountAcceptedValidatorTest {
 	   @Test
 	   public void shouldReturnsEmptyConstrainsWhenCurrencyIsAllowed(){
 
-		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10, Monetary.getCurrency("BRL")));
+		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10,
+				   Monetary.getCurrency("BRL")));
 		   Set<ConstraintViolation<MonetaryAmountValidator>> constraintViolations =
 				      validator.validate(currency);
 		   assertTrue(constraintViolations.isEmpty());
@@ -95,7 +98,8 @@ public class MonetaryAmountAcceptedValidatorTest {
 	   @Test
 	   public void shouldReturnsConstrainsWhenCurrencyDenied(){
 
-		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10, Monetary.getCurrency(Locale.US)));
+		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10,
+				   Monetary.getCurrency(Locale.US)));
 		   Set<ConstraintViolation<MonetaryAmountValidator>> constraintViolations =
 				      validator.validate(currency);
 

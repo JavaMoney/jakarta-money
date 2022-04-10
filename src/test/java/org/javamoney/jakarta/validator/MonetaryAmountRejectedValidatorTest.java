@@ -49,7 +49,7 @@ public class MonetaryAmountRejectedValidatorTest {
 
 
 	@Test
-	public void shouldReturnsTrueWhenCurrecyIsNull() {
+	public void shouldReturnsTrueWhenCurrencyIsNull() {
 		assertTrue(monetaryAmountValidator.isValid(null, context));
 	}
 
@@ -61,7 +61,8 @@ public class MonetaryAmountRejectedValidatorTest {
 		when(constraintAnnotation.currencies()).thenReturn(new String[]{currencyCodAllowed});
 		monetaryAmountValidator.initialize(constraintAnnotation);
 
-		assertFalse(monetaryAmountValidator.isValid(Money.of(10,Monetary.getCurrency(currencyCodAllowed)), context));
+		assertFalse(monetaryAmountValidator.isValid(Money.of(10,
+				Monetary.getCurrency(currencyCodAllowed)), context));
 	}
 
 	@Test
@@ -85,7 +86,8 @@ public class MonetaryAmountRejectedValidatorTest {
 	   @Test
 	   public void shouldReturnsEmptyConstrainsWhenCurrencyIsAllowed(){
 
-		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10, Monetary.getCurrency(Locale.US)));
+		   MonetaryAmountValidator currency = new MonetaryAmountValidator(
+				   Money.of(10, Monetary.getCurrency(Locale.US)));
 		   Set<ConstraintViolation<MonetaryAmountValidator>> constraintViolations =
 				      validator.validate(currency);
 		   assertTrue(constraintViolations.isEmpty());
@@ -95,12 +97,14 @@ public class MonetaryAmountRejectedValidatorTest {
 	   @Test
 	   public void shouldReturnsConstrainsWhenCurrencyDenied(){
 
-		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10, Monetary.getCurrency("BRL")));
+		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10,
+				   Monetary.getCurrency("BRL")));
 		   Set<ConstraintViolation<MonetaryAmountValidator>> constraintViolations =
 				      validator.validate(currency);
 
 		   assertTrue(constraintViolations.size() == 1);
-		   assertEquals("{org.javamoney.midas.constraints.currencyRejected}", constraintViolations.iterator().next().getMessageTemplate());
+		   assertEquals("{org.javamoney.midas.constraints.currencyRejected}",
+				   constraintViolations.iterator().next().getMessageTemplate());
 	   }
 
 	private class MonetaryAmountValidator {

@@ -38,6 +38,7 @@ public class MonetaryAmountMaxTest {
 
 	private MonetaryAmountMaxValidator monetaryValidator;
 
+	@Mock
 	private ConstraintValidatorContext context;
 
 	private MonetaryAmount money;
@@ -78,12 +79,14 @@ public class MonetaryAmountMaxTest {
 
 	@Test
 	public void shouldReturnsConstrainsWhenMonetaryIsGreaterThanMaximum() {
-		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(20, Monetary.getCurrency("BRL")));
+		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(20,
+				   Monetary.getCurrency("BRL")));
 		   Set<ConstraintViolation<MonetaryAmountValidator>> constraintViolations =
 				      validator.validate(currency);
 
 		   assertTrue(constraintViolations.size() == 1);
-		   assertEquals("{org.javamoney.midas.constraints.monetaryMax}", constraintViolations.iterator().next().getMessageTemplate());
+		   assertEquals("{org.javamoney.midas.constraints.monetaryMax}",
+				   constraintViolations.iterator().next().getMessageTemplate());
 	}
 
 	@Test
@@ -96,7 +99,8 @@ public class MonetaryAmountMaxTest {
 
 	@Test
 	public void shouldReturnsEmptyConstrainsWhenMonetaryIsLesserThanMaximum() {
-		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10, Monetary.getCurrency("BRL")));
+		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10,
+				   Monetary.getCurrency("BRL")));
 		   Set<ConstraintViolation<MonetaryAmountValidator>> constraintViolations =
 				      validator.validate(currency);
 		   assertTrue(constraintViolations.isEmpty());

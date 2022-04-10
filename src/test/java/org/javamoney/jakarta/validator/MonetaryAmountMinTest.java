@@ -38,6 +38,7 @@ public class MonetaryAmountMinTest {
 
 	private MonetaryAmountMinValidator monetaryValidator;
 
+	@Mock
 	private ConstraintValidatorContext context;
 
 	private MonetaryAmount money;
@@ -78,12 +79,14 @@ public class MonetaryAmountMinTest {
 
 	@Test
 	public void shouldReturnsConstrainsWhenMonetaryIsLesserThanMinimum() {
-		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10, Monetary.getCurrency("BRL")));
+		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(10,
+				   Monetary.getCurrency("BRL")));
 		   Set<ConstraintViolation<MonetaryAmountValidator>> constraintViolations =
 				      validator.validate(currency);
 
 		   assertTrue(constraintViolations.size() == 1);
-		   assertEquals("{org.javamoney.midas.constraints.monetaryMin}", constraintViolations.iterator().next().getMessageTemplate());
+		   assertEquals("{org.javamoney.midas.constraints.monetaryMin}",
+				   constraintViolations.iterator().next().getMessageTemplate());
 	}
 
 	@Test
@@ -96,7 +99,8 @@ public class MonetaryAmountMinTest {
 
 	@Test
 	public void shouldReturnsEmptyConstrainsWhenMonetaryIsGreaterThanMimimum() {
-		   MonetaryAmountValidator currency = new MonetaryAmountValidator(Money.of(20, Monetary.getCurrency("BRL")));
+		   MonetaryAmountValidator currency = new MonetaryAmountValidator(
+				   Money.of(20, Monetary.getCurrency("BRL")));
 		   Set<ConstraintViolation<MonetaryAmountValidator>> constraintViolations =
 				      validator.validate(currency);
 

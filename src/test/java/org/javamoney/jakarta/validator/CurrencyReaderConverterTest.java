@@ -46,9 +46,6 @@ public class CurrencyReaderConverterTest {
 
 		CurrencyReaderConverter converter = new CurrencyReaderConverter(currency);
 		assertFalse(converter.getCurrencies().isEmpty());
-//
-//		assertThat(converter.getCurrencies().toArray(),
-//				Matchers.arrayContaining(Monetary.getCurrency("BRL"), Monetary.getCurrency("USD")));
 	}
 
 
@@ -67,8 +64,6 @@ public class CurrencyReaderConverterTest {
 		CurrencyReaderConverter converter = new CurrencyReaderConverter(currency);
 		assertFalse(converter.getCurrencies().isEmpty());
 
-//		assertThat(converter.getCurrencies().toArray(),
-//				Matchers.arrayContaining(Monetary.getCurrency(Locale.US)));
 	}
 
 	@Test

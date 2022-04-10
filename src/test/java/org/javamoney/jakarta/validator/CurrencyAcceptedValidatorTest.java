@@ -39,6 +39,7 @@ public class CurrencyAcceptedValidatorTest {
 	@Mock
 	private CurrencyAccepted constraintAnnotation;
 
+	@Mock
 	private ConstraintValidatorContext context;
 
 	@BeforeEach
