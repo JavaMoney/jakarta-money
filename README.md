@@ -3,6 +3,7 @@
 Jakarta money is a helpful library for a better developer experience when combining Money-API with Jakarta and MicroProfile API.
 
 **The dependency:**
+
 ```xml
 <dependency>
    <groupId>org.javamoney</groupId>
