@@ -109,8 +109,6 @@ public class CurrencyAcceptedValidatorTest {
 		CurrencyValidator(CurrencyUnit currencyUnit) {
 			this.currencyUnit = currencyUnit;
 		}
-
 	}
-
 
 }

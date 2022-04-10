@@ -26,9 +26,32 @@ JSR 380 is a specification of the Java API for bean validation, part of Jakarta 
 
 To make an integration with Java-money Jakarta-money has four annotations:
 
-* **CurrencyAccepted**: Informs the currencies that are allowed on validation. It works with `MonetaryAmount` and `CurrencyUnit`.
-* **CurrencyRejected**: Informs the currencies that are rejected on validation. It works with `MonetaryAmount` and `CurrencyUnit`.
-* **MonetaryMax**: Informs the maximum value of a `MonetaryAmount`.
-* **MonetaryMin**: Informs the minimum value of a `MonetaryAmount`.
+**CurrencyAccepted**: Informs the currencies that are allowed on validation. It works with `MonetaryAmount` and `CurrencyUnit`.
 
+```java
+@CurrencyAccepted(currencies = "BRL")
+private MonetaryAmount money;
+@CurrencyAccepted(currencies = "BRL")
+private CurrencyUnit currencyUnit;
+```
+
+**CurrencyRejected**: Informs the currencies that are rejected on validation. It works with `MonetaryAmount` and `CurrencyUnit`.
+
+```java
+@CurrencyRejected(currencies = "BRL")
+private MonetaryAmount money;
+@CurrencyRejected(currencies = "BRL")
+private CurrencyUnit currencyUnit;
+```
+**MonetaryMax**: Informs the maximum value of a `MonetaryAmount`.
+
+```java
+@MonetaryMax("10.12")
+private MonetaryAmount money;
+```
+**MonetaryMin**: Informs the minimum value of a `MonetaryAmount`.
+```java
+@MonetaryMin("10.12")
+private MonetaryAmount money;
+```
 
