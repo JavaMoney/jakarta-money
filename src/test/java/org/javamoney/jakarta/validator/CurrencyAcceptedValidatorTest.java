@@ -1,12 +1,11 @@
 package org.javamoney.jakarta.validator;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.when;
-
-import java.util.Locale;
-import java.util.Set;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
@@ -15,21 +14,21 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import java.util.Locale;
+import java.util.Set;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
+
+@ExtendWith(MockitoExtension.class)
 public class CurrencyAcceptedValidatorTest {
 
 	private static Validator validator;
 
-	@BeforeClass
+	@BeforeAll
 	public static void setUp() {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		validator = factory.getValidator();
@@ -42,7 +41,7 @@ public class CurrencyAcceptedValidatorTest {
 
 	private ConstraintValidatorContext context;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		when(constraintAnnotation.currencies()).thenReturn(new String[0]);
 		when(constraintAnnotation.currenciesFromLocales()).thenReturn(new String[0]);
@@ -52,7 +51,7 @@ public class CurrencyAcceptedValidatorTest {
 
 	@Test
 	public void shouldReturnsTrueWhenCurrecyIsNull() {
-		Assert.assertTrue(currencyValidator.isValid(null, context));
+		assertTrue(currencyValidator.isValid(null, context));
 	}
 
 	@Test

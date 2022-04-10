@@ -1,31 +1,24 @@
 package org.javamoney.jakarta.validator;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
-import java.util.Locale;
-
-import javax.money.Monetary;
-
-import org.hamcrest.Matchers;
-import org.javamoney.midas.javaee7.validator.CurrencyAccepted;
-import org.javamoney.midas.javaee7.validator.CurrencyReaderConverter;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
-
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class CurrencyReaderConverterTest {
 
 
 	@Mock
 	private CurrencyAccepted currency;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		when(currency.currencies()).thenReturn(new String[0]);
 		when(currency.currenciesFromLocales()).thenReturn(new String[0]);
@@ -45,8 +38,6 @@ public class CurrencyReaderConverterTest {
 		CurrencyReaderConverter converter = new CurrencyReaderConverter(currency);
 		assertFalse(converter.getCurrencies().isEmpty());
 
-//		assertThat(converter.getCurrencies().toArray(),
-//				Matchers.arrayContaining(Monetary.getCurrency("BRL")));
 	}
 
 	@Test
@@ -92,10 +83,10 @@ public class CurrencyReaderConverterTest {
 //				Matchers.arrayContaining(Monetary.getCurrency(Locale.US), Monetary.getCurrency(Locale.UK)));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void shouldReturnsErrorOnElementsAcceptedWhenLocaleIsWrong(){
+		Assertions.assertThrows(IllegalArgumentException.class, () -> new CurrencyReaderConverter(currency));
 		when(currency.currenciesFromLocales()).thenReturn(new String[]{"en"});
-		new CurrencyReaderConverter(currency);
 	}
 
 }
