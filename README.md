@@ -56,3 +56,22 @@ private MonetaryAmount money;
 ```
 
 ## JAXRS
+
+If you want JAX-RS to automatically convert parameters such as query params, path params, or others, you need to create a ParamConverter.
+
+It has support to:
+
+* CurrencyUnit
+* MonetaryAmount
+
+```java
+@Path("monetary")
+@ApplicationScoped
+public class Moneyesource {
+
+    @GET
+    public String findByCurrency(@QueryParam("currency") CurrencyUnit currency) {
+        return "hello, " + currency;
+    }
+}
+``
