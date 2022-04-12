@@ -33,24 +33,27 @@ public class CurrencyUnitConverterProvider implements ParamConverterProvider {
     @Override
     public <T> ParamConverter<T> getConverter(final Class<T> rawType, Type genericType, Annotation[] annotations) {
         if (CurrencyUnit.class.isInstance(rawType)) {
-            return new ParamConverter<T>() {
-                @Override
-                public T fromString(String value) {
-                    if(value == null || value.isEmpty()) {
-                        return null;
-                    }
-                    return rawType.cast(Monetary.getCurrency(value));
-                }
-
-                @Override
-                public String toString(T value) {
-                    if(value == null) {
-                        return null;
-                    }
-                    return value.toString();
-                }
-            };
+            return (ParamConverter<T>) new CurrencyParamConverter();
         }
-            return null;
+        return null;
+    }
+
+    private static class CurrencyParamConverter implements ParamConverter<CurrencyUnit> {
+
+        @Override
+        public CurrencyUnit fromString(String value) {
+            if (value == null || value.isEmpty()) {
+                return null;
+            }
+            return Monetary.getCurrency(value);
+        }
+
+        @Override
+        public String toString(CurrencyUnit value) {
+            if (value == null) {
+                return null;
+            }
+            return value.toString();
+        }
     }
 }
