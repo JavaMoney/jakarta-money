@@ -67,11 +67,30 @@ It has support to:
 ```java
 @Path("monetary")
 @ApplicationScoped
-public class Moneyesource {
+public class MoneyResource {
 
     @GET
     public String findByCurrency(@QueryParam("currency") CurrencyUnit currency) {
         return "hello, " + currency;
     }
 }
-``
+```
+
+## JPA
+
+Jakarta Persistence defines a standard for managing persistence and object/relational mapping in Java(R) environments.
+
+It has support to both: `MoneyAmount` and `CurrencyUnit`.
+
+```java
+
+import javax.persistence.Converter;
+
+@Column
+@Convert(converter = CurrencyConverter.class)
+private CurrencyUnit currency;
+
+@Column
+@Convert(converter = MoneyConverter.class)
+private MonetaryAmount money;
+```
