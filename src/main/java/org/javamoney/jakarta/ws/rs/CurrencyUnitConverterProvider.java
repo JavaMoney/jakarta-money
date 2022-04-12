@@ -30,10 +30,12 @@ import javax.ws.rs.ext.Provider;
 @Provider
 public class CurrencyUnitConverterProvider implements ParamConverterProvider {
 
+    private static final CurrencyParamConverter INSTANCE = new CurrencyParamConverter();
+
     @Override
     public <T> ParamConverter<T> getConverter(final Class<T> rawType, Type genericType, Annotation[] annotations) {
         if (CurrencyUnit.class.isInstance(rawType)) {
-            return (ParamConverter<T>) new CurrencyParamConverter();
+            return (ParamConverter<T>) INSTANCE;
         }
         return null;
     }

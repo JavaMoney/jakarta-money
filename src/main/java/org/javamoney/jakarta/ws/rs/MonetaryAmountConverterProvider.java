@@ -30,11 +30,13 @@ import org.javamoney.moneta.Money;
 @Provider
 public class MonetaryAmountConverterProvider implements ParamConverterProvider {
 
+    private static final MonetaryAmountConverterProvider INSTANCE = new MonetaryAmountConverterProvider();
 
     @Override
     public <T> ParamConverter<T> getConverter(final Class<T> rawType, Type genericType, Annotation[] annotations) {
+
         if (MonetaryAmount.class.isInstance(rawType)) {
-           return (ParamConverter<T>) new MonetaryAmountConverterProvider();
+           return (ParamConverter<T>) INSTANCE;
         }
         return null;
     }
