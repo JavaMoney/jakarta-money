@@ -15,12 +15,12 @@ Jakarta money is a helpful library for a better developer experience when combin
 The API brings some libraries that is split by specification:
 
 * Bean Validator
-* CDI
 * JAXRS
+* CDI
 * JPA
 * JSF
 
-## Hibernate Validator
+## Bean Validator
 
 JSR 380 is a specification of the Java API for bean validation, part of Jakarta EE and JavaSE. It ensures that the properties of a bean meet specific criteria, using annotations such as @NotNull, @Min, and @Max.
 
@@ -55,3 +55,4 @@ private MonetaryAmount money;
 private MonetaryAmount money;
 ```
 
+## JAXRS
