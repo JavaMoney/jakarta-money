@@ -83,9 +83,6 @@ Jakarta Persistence defines a standard for managing persistence and object/relat
 It has support to both: `MoneyAmount` and `CurrencyUnit`.
 
 ```java
-
-import javax.persistence.Converter;
-
 @Column
 @Convert(converter = CurrencyConverter.class)
 private CurrencyUnit currency;
