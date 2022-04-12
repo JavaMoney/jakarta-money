@@ -30,22 +30,22 @@ import org.javamoney.moneta.Money;
 @Provider
 public class MonetaryAmountConverterProvider implements ParamConverterProvider {
 
-    private static final MonetaryAmountConverterProvider INSTANCE = new MonetaryAmountConverterProvider();
+    private static final ParamConverter<MonetaryAmount> INSTANCE = new MonetaryAmountParamConverter();
 
     @Override
     public <T> ParamConverter<T> getConverter(final Class<T> rawType, Type genericType, Annotation[] annotations) {
 
         if (MonetaryAmount.class.isInstance(rawType)) {
-           return (ParamConverter<T>) INSTANCE;
+            return (ParamConverter<T>) INSTANCE;
         }
         return null;
     }
 
-    private static class MonetaryAmountParamConverter implements ParamConverter<MonetaryAmount>{
+    private static class MonetaryAmountParamConverter implements ParamConverter<MonetaryAmount> {
 
         @Override
         public MonetaryAmount fromString(String value) {
-            if(value == null || value.isEmpty()) {
+            if (value == null || value.isEmpty()) {
                 return null;
             }
             return Money.parse(value);
@@ -53,7 +53,7 @@ public class MonetaryAmountConverterProvider implements ParamConverterProvider {
 
         @Override
         public String toString(MonetaryAmount value) {
-            if(value == null) {
+            if (value == null) {
                 return null;
             }
             return value.toString();

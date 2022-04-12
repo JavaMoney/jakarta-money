@@ -30,7 +30,7 @@ import javax.ws.rs.ext.Provider;
 @Provider
 public class CurrencyUnitConverterProvider implements ParamConverterProvider {
 
-    private static final CurrencyParamConverter INSTANCE = new CurrencyParamConverter();
+    private static final ParamConverter<CurrencyUnit> INSTANCE = new CurrencyParamConverter();
 
     @Override
     public <T> ParamConverter<T> getConverter(final Class<T> rawType, Type genericType, Annotation[] annotations) {
