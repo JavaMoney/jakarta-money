@@ -18,18 +18,18 @@
 package org.javamoney.jakarta.jpa;
 
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 import javax.money.MonetaryAmount;
 
-import org.javamoney.midas.javaee7.jpa.MoneyConverter;
 import org.javamoney.moneta.Money;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class MoneyConverterTest {
 
@@ -39,7 +39,7 @@ public class MoneyConverterTest {
 	
 	private MonetaryAmount expectedMoney;
 	
-	@Before
+	@BeforeEach
 	public void setup() {
 		converter = new MoneyConverter();
 		currency = Monetary.getCurrency("USD");
@@ -67,7 +67,7 @@ public class MoneyConverterTest {
 	@Test
 	public void shouldReturnsCurrencyCodeWhenHasInformationFromDataBase() {
 		MonetaryAmount moneyConverted = converter.convertToEntityAttribute(expectedMoney.toString());
-		Assert.assertTrue(Money.class.isInstance(moneyConverted));
+		Assertions.assertTrue(Money.class.isInstance(moneyConverted));
 		assertEquals(expectedMoney, moneyConverted);
 	}
 	

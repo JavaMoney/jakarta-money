@@ -17,15 +17,16 @@
 
 package org.javamoney.jakarta.jpa;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 
-import org.javamoney.midas.javaee7.jpa.CurrencyConverter;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 
 public class CurrencyConverterTest {
 	
@@ -33,7 +34,7 @@ public class CurrencyConverterTest {
 	
 	private CurrencyUnit currencyUnit = Monetary.getCurrency("BRL");
 	
-	@Before
+	@BeforeEach
 	public void setup() {
 		currencyConverter = new CurrencyConverter();
 	}
@@ -45,7 +46,7 @@ public class CurrencyConverterTest {
 	}
 	
 	@Test
-	public void shouldReturnsTheCurrenyCodeWhenHasAttribute() {
+	public void shouldReturnsTheCurrentCodeWhenHasAttribute() {
 		
 		String result = currencyConverter.convertToDatabaseColumn(currencyUnit);
 		assertEquals(currencyUnit.toString(), result);
