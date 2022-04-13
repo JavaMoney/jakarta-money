@@ -49,7 +49,7 @@ class ProducerFactory {
 	}
 
 	@Produces
-	@MonetaryAmountQualifier(MonetaryAmountType.FAST_MONEY)
+	@MonetaryAmountQualifier(MonetaryAmountType.ROUNDED_MONEY)
 	public MonetaryAmountProducer getRoundedMoneyProducer(){
 		return new RoundedMoneyProducer(rounding);
 	}
