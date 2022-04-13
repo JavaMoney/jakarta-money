@@ -17,6 +17,7 @@
 
 package org.javamoney.jakarta.cdi;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
@@ -27,6 +28,7 @@ import org.javamoney.moneta.function.MonetaryAmountProducer;
 import org.javamoney.moneta.function.MoneyProducer;
 import org.javamoney.moneta.function.RoundedMoneyProducer;
 
+@ApplicationScoped
 class ProducerFactory {
 
 

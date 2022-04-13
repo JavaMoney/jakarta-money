@@ -17,6 +17,7 @@
 
 package org.javamoney.jakarta.cdi;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Instance;
 import javax.enterprise.inject.Produces;
@@ -26,6 +27,7 @@ import javax.money.Monetary;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Locale;
 
+@ApplicationScoped
 class CurrencyProducer {
 
     @Inject

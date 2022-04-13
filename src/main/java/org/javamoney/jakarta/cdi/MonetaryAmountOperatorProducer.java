@@ -17,11 +17,13 @@
 
 package org.javamoney.jakarta.cdi;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.money.MonetaryOperator;
 
 import org.javamoney.moneta.function.MonetaryOperators;
 
+@ApplicationScoped
 class MonetaryAmountOperatorProducer {
 
 	@Produces
