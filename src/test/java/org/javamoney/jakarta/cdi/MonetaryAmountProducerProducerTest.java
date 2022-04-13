@@ -49,6 +49,7 @@ class MonetaryAmountProducerProducerTest {
     private MonetaryAmountProducer roundMoneyProducer;
 
     @Inject
+    @Currency("EUR")
     private CurrencyUnit currency;
 
     @Test
