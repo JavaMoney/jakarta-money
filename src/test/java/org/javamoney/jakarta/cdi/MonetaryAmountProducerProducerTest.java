@@ -29,6 +29,7 @@ import javax.inject.Inject;
 import javax.money.CurrencyUnit;
 import javax.money.MonetaryAmount;
 
+
 @CDIExtension
 class MonetaryAmountProducerProducerTest {
 
