@@ -24,7 +24,7 @@ import javax.money.MonetaryOperator;
 import org.javamoney.moneta.function.MonetaryOperators;
 
 @ApplicationScoped
-class MonetaryAmountOperatorProducer {
+class MonetaryOperatorProducer {
 
 	@Produces
 	public MonetaryOperator getRoundingDefault() {
