@@ -18,14 +18,16 @@
 package org.javamoney.jakarta.cdi;
 
 import org.javamoney.jakarta.test.CDIExtension;
-import org.javamoney.moneta.function.FastMoneyProducer;
+import org.javamoney.moneta.FastMoney;
+import org.javamoney.moneta.Money;
+import org.javamoney.moneta.RoundedMoney;
 import org.javamoney.moneta.function.MonetaryAmountProducer;
-import org.javamoney.moneta.function.MoneyProducer;
-import org.javamoney.moneta.function.RoundedMoneyProducer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
+import javax.money.CurrencyUnit;
+import javax.money.MonetaryAmount;
 
 @CDIExtension
 class MonetaryAmountProducerProducerTest {
@@ -45,27 +47,38 @@ class MonetaryAmountProducerProducerTest {
     @MonetaryProducer(MonetaryAmountType.ROUNDED_MONEY)
     private MonetaryAmountProducer roundMoneyProducer;
 
+    @Inject
+    private CurrencyUnit currency;
+
     @Test
     public void shouldInjectDefaultAmountProducer() {
         Assertions.assertNotNull(amountProducer);
-        Assertions.assertEquals(MoneyProducer.class, amountProducer.getClass());
+        MonetaryAmount amount = amountProducer.create(currency, 10);
+        Assertions.assertNotNull(amount);
+        Assertions.assertEquals(Money.class, amount.getClass());
     }
 
     @Test
     public void shouldInjectDefaultQualifierAmountProducer() {
         Assertions.assertNotNull(amountProducerA);
-        Assertions.assertEquals(MoneyProducer.class, amountProducerA.getClass());
+        MonetaryAmount amount = amountProducer.create(currency, 10);
+        Assertions.assertNotNull(amount);
+        Assertions.assertEquals(Money.class, amount.getClass());
     }
 
     @Test
     public void shouldInjectFastMoneyAmountProducer() {
         Assertions.assertNotNull(fastMoneyProducer);
-        Assertions.assertEquals(FastMoneyProducer.class, fastMoneyProducer.getClass());
+        MonetaryAmount amount = fastMoneyProducer.create(currency, 10);
+        Assertions.assertNotNull(amount);
+        Assertions.assertEquals(FastMoney.class, amount.getClass());
     }
 
     @Test
     public void shouldInjectRoundedMoneyAmountProducer() {
         Assertions.assertNotNull(roundMoneyProducer);
-        Assertions.assertEquals(RoundedMoneyProducer.class, roundMoneyProducer.getClass());
+        MonetaryAmount amount = roundMoneyProducer.create(currency, 10);
+        Assertions.assertNotNull(amount);
+        Assertions.assertEquals(RoundedMoney.class, amount.getClass());
     }
 }
