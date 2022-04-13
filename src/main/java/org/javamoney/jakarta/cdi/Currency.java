@@ -26,9 +26,17 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * The currency Qualifier to inject from the currency code such as USD, BRL and so on.
+ * This annotation qualifier will support {@link javax.money.CurrencyUnit}
+ */
 @Target({METHOD, FIELD})
 @Retention(RUNTIME)
 @Qualifier
 public @interface Currency {
+	/**
+	 * The currency code to inject in the {@link javax.money.CurrencyUnit}
+	 * @return the currency code
+	 */
     @Nonbinding String value();
 }
