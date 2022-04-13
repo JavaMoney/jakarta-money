@@ -25,11 +25,12 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import javax.enterprise.util.Nonbinding;
 import javax.inject.Qualifier;
 
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 @Qualifier
-public @interface CurrencyQualifier {
-	String currency() default "";
+public @interface Currency {
+	 @Nonbinding String currency() default "";
 }
