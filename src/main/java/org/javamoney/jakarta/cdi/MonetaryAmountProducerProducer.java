@@ -38,18 +38,21 @@ class MonetaryAmountProducerProducer {
 	@Produces
 	@Default
 	@MonetaryProducer
+	@ApplicationScoped
 	public MonetaryAmountProducer getDefaultProducer(){
 		return new MoneyProducer();
 	}
 
 	@Produces
 	@MonetaryProducer(MonetaryAmountType.FAST_MONEY)
+	@ApplicationScoped
 	public MonetaryAmountProducer getFastMoneyProducer(){
 		return new FastMoneyProducer();
 	}
 
 	@Produces
 	@MonetaryProducer(MonetaryAmountType.ROUNDED_MONEY)
+	@ApplicationScoped
 	public MonetaryAmountProducer getRoundedMoneyProducer(){
 		return new RoundedMoneyProducer(rounding);
 	}
