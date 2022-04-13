@@ -29,7 +29,7 @@ import org.javamoney.moneta.function.MoneyProducer;
 import org.javamoney.moneta.function.RoundedMoneyProducer;
 
 @ApplicationScoped
-class ProducerFactory {
+class MonetaryAmountProducerProducer {
 
 
 	@Inject

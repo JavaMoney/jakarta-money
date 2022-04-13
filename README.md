@@ -91,3 +91,16 @@ private CurrencyUnit currency;
 @Convert(converter = MoneyConverter.class)
 private MonetaryAmount money;
 ```
+
+## CDI
+
+### Currency Qualifier
+
+The Currency annotation allows to inject a currency unit based in the  Currency code.
+
+```java
+@Inject
+@Currency("USD")
+private CurrencyUnit currency;
+```
+

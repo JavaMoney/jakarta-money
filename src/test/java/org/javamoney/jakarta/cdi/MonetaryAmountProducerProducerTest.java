@@ -28,21 +28,21 @@ import org.junit.jupiter.api.Test;
 import javax.inject.Inject;
 
 @CDIExtension
-class ProducerFactoryTest {
+class MonetaryAmountProducerProducerTest {
 
     @Inject
     private MonetaryAmountProducer amountProducer;
 
     @Inject
-    @MonetaryAmountQualifier
+    @MonetaryProducer
     private MonetaryAmountProducer amountProducerA;
 
     @Inject
-    @MonetaryAmountQualifier(MonetaryAmountType.FAST_MONEY)
+    @MonetaryProducer(MonetaryAmountType.FAST_MONEY)
     private MonetaryAmountProducer fastMoneyProducer;
 
     @Inject
-    @MonetaryAmountQualifier(MonetaryAmountType.ROUNDED_MONEY)
+    @MonetaryProducer(MonetaryAmountType.ROUNDED_MONEY)
     private MonetaryAmountProducer roundMoneyProducer;
 
     @Test
