@@ -17,9 +17,22 @@
 
 package org.javamoney.jakarta.cdi;
 
+
 /**
- * Define the {@link org.javamoney.moneta.function.MonetaryAmountProducer} that this library supports
+ * Define the {@link org.javamoney.moneta.function.MonetaryAmountProducer} that this library supports.
+ * Each enum will return a different implementation
  */
 public enum MonetaryAmountType {
-    MONEY, FAST_MONEY, ROUNDED_MONEY;
+    /**
+     * the {@link  org.javamoney.moneta.function.MoneyProducer}
+     */
+    MONEY,
+    /**
+     * the {@link  org.javamoney.moneta.function.FastMoneyProducer}
+     */
+    FAST_MONEY,
+    /**
+     * the {@link  org.javamoney.moneta.function.RoundedMoneyProducer}
+     */
+    ROUNDED_MONEY;
 }
