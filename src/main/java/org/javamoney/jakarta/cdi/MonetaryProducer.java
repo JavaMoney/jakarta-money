@@ -17,6 +17,7 @@
 
 package org.javamoney.jakarta.cdi;
 
+
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
@@ -27,9 +28,16 @@ import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
 
+/**
+ * It defines the type {@link org.javamoney.moneta.function.MonetaryAmountProducer} that will be injected on the CDI.
+ */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 @Qualifier
-public @interface MonetaryAmountQualifier {
+public @interface MonetaryProducer {
+	/**
+	 * The MonetaryAmountProducer implementation
+	 * @return the type {@link  MonetaryAmountType}
+	 */
 	MonetaryAmountType value() default MonetaryAmountType.MONEY;
 }
