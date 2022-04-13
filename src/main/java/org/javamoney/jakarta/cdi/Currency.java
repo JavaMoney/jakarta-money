@@ -32,5 +32,5 @@ import javax.inject.Qualifier;
 @Retention(RUNTIME)
 @Qualifier
 public @interface Currency {
-	 @Nonbinding String currency() default "";
+	 @Nonbinding String value();
 }
