@@ -94,9 +94,9 @@ private MonetaryAmount money;
 
 ## CDI
 
-### Currency Qualifier
+### Currency Annotation
 
-The Currency annotation allows to inject a currency unit based in the  Currency code.
+The `Currency` annotation allows to inject a currency unit based in the  Currency code.
 
 ```java
 @Inject
@@ -104,3 +104,19 @@ The Currency annotation allows to inject a currency unit based in the  Currency 
 private CurrencyUnit currency;
 ```
 
+### MonetaryProducer
+
+The MonetaryProducer annotations allows to inject the `MonetaryAmountProducer`
+
+```java
+@Inject
+@MonetaryProducer
+private MonetaryAmountProducer producer;
+
+@Inject
+@Currency("EUR")
+private CurrencyUnit currency;
+
+//
+MonetaryAmount amount = producer.create(currency, 10);
+```
