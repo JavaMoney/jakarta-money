@@ -17,18 +17,21 @@
 
 package org.javamoney.jakarta.cdi;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Default;
-import javax.enterprise.inject.Produces;
+import org.javamoney.jakarta.test.CDIExtension;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import javax.inject.Inject;
 import javax.money.MonetaryOperator;
 
-import org.javamoney.moneta.function.MonetaryOperators;
+@CDIExtension
+class MonetaryOperatorProducerTest {
 
-@ApplicationScoped
-class MonetaryOperatorProducer {
+    @Inject
+    private MonetaryOperator operator;
 
-	@Produces
-	public MonetaryOperator getRoundingDefault() {
-		return MonetaryOperators.rounding();
-	}
+    @Test
+    public void shouldInjectOperator() {
+        Assertions.assertNotNull(operator);
+    }
 }
