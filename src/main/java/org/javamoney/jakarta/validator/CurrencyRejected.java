@@ -29,15 +29,15 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+/**
+ *Informs the currencies that are rejected on validation.
+ *This annotation works with {@link javax.money.MonetaryAmount} and {@link javax.money.CurrencyUnit}.
+ * @author Otavio Santana
+ */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 @Constraint(validatedBy = {CurrencyRejectedValidator.class, MonetaryAmountRejectedValidator.class})
 @Documented
-/**
- *Informs the currencies that are rejected on validation.
- *This annotation works with MonetaryAmount and CurrencyUnit.
- * @author Otavio Santana
- */
 public @interface CurrencyRejected {
 
 	String message() default "{org.javamoney.midas.constraints.currencyRejected}";
