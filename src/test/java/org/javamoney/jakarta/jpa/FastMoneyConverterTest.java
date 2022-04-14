@@ -67,7 +67,7 @@ public class FastMoneyConverterTest {
 	@Test
 	public void shouldReturnsCurrencyCodeWhenHasInformationFromDataBase() {
 		MonetaryAmount moneyConverted = converter.convertToEntityAttribute(expectedMoney.toString());
-		Assertions.assertTrue(FastMoney.class.isInstance(moneyConverted));
+		Assertions.assertTrue(moneyConverted instanceof FastMoney);
 		assertEquals(expectedMoney, moneyConverted);
 	}
 	

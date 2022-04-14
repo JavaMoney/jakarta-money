@@ -67,7 +67,7 @@ public class MoneyConverterTest {
 	@Test
 	public void shouldReturnsCurrencyCodeWhenHasInformationFromDataBase() {
 		MonetaryAmount moneyConverted = converter.convertToEntityAttribute(expectedMoney.toString());
-		Assertions.assertTrue(Money.class.isInstance(moneyConverted));
+		Assertions.assertTrue(moneyConverted instanceof Money);
 		assertEquals(expectedMoney, moneyConverted);
 	}
 	
