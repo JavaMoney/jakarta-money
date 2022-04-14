@@ -124,7 +124,7 @@ public class MonetaryAmountRejectedValidatorTest {
 				   constraintViolations.iterator().next().getMessageTemplate());
 	   }
 
-	private class MonetaryAmountValidator {
+	private static class MonetaryAmountValidator {
 
 		@CurrencyRejected(currencies = "BRL")
 		private MonetaryAmount money;

@@ -123,7 +123,7 @@ public class MonetaryAmountMinTest {
 
 		   assertTrue(constraintViolations.isEmpty());
 	}
-	private class MonetaryAmountValidator {
+	private static class MonetaryAmountValidator {
 
 		@MonetaryMin("10.12")
 		private MonetaryAmount money;

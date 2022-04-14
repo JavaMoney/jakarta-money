@@ -124,7 +124,7 @@ public class MonetaryAmountAcceptedValidatorTest {
 		   assertEquals("{org.javamoney.midas.constraints.currencyAccepted}", constraintViolations.iterator().next().getMessageTemplate());
 	   }
 
-	private class MonetaryAmountValidator {
+	private static class MonetaryAmountValidator {
 
 		@CurrencyAccepted(currencies = "BRL")
 		private MonetaryAmount money;
