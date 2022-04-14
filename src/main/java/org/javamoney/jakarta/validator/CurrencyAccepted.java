@@ -28,16 +28,16 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-@Target( { METHOD, FIELD, ANNOTATION_TYPE })
-@Retention(RUNTIME)
-@Constraint(validatedBy = {CurrencyAcceptedValidator.class, MonetaryAmountAcceptedValidator.class})
-@Documented
 /**
  * Informs the currencies that are allowed on validation.
  * This annotation works with MonetaryAmount and CurrencyUnit.
  * @author Otavio Santana
  * @author Werner Keil
  */
+@Target( { METHOD, FIELD, ANNOTATION_TYPE })
+@Retention(RUNTIME)
+@Constraint(validatedBy = {CurrencyAcceptedValidator.class, MonetaryAmountAcceptedValidator.class})
+@Documented
 public @interface CurrencyAccepted {
 
 	String message() default "{org.javamoney.midas.constraints.currencyAccepted}";

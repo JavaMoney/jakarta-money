@@ -26,18 +26,19 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import javax.money.MonetaryAmount;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+/**
+ *Informs the minimum value of a {@link javax.money.MonetaryAmount}.
+ *To do the comparison is used the {@link javax.money.MonetaryAmount#isGreaterThanOrEqualTo(MonetaryAmount)}
+ * @author Otavio Santana
+ */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 @Constraint(validatedBy = MonetaryAmountMinValidator.class)
 @Documented
-/**
- *Informs the minimum value of a {@link MonetaryAmount}.
- *To do the comparison is used the {@link MonetaryAmount#isGreaterThanOrEqualTo(MonetaryAmount)
- * @author Otavio Santana
- */
 public @interface MonetaryMin {
 
 	String message() default "{org.javamoney.midas.constraints.monetaryMin}";
