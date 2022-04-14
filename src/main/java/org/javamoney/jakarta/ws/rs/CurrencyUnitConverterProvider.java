@@ -34,7 +34,7 @@ public class CurrencyUnitConverterProvider implements ParamConverterProvider {
 
     @Override
     public <T> ParamConverter<T> getConverter(final Class<T> rawType, Type genericType, Annotation[] annotations) {
-        if (CurrencyUnit.class.isInstance(rawType)) {
+        if (rawType.equals(CurrencyUnit.class)) {
             return (ParamConverter<T>) INSTANCE;
         }
         return null;
