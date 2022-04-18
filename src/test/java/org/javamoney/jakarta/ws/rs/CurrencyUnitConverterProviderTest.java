@@ -26,8 +26,6 @@ import javax.money.Monetary;
 import javax.ws.rs.ext.ParamConverter;
 import javax.ws.rs.ext.ParamConverterProvider;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CurrencyUnitConverterProviderTest {
 
     private ParamConverterProvider converterProvider;
@@ -66,7 +64,8 @@ class CurrencyUnitConverterProviderTest {
     }
 
     private ParamConverter<CurrencyUnit> getConverter() {
-        ParamConverter<CurrencyUnit> converter = this.converterProvider.getConverter(CurrencyUnit.class, null, null);
+        ParamConverter<CurrencyUnit> converter = this.converterProvider.getConverter(CurrencyUnit.class,
+                null, null);
         return converter;
     }
 
