@@ -16,18 +16,17 @@
  */
 package org.javamoney.jakarta.jsf;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 
-import org.javamoney.midas.javaee7.jsf.CurrencyConverter;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class CurrencyConverterTest {
 	
@@ -39,7 +38,7 @@ public class CurrencyConverterTest {
 	
 	private final String currencyCode = "BRL";
 	
-	@Before
+	@BeforeEach
 	public void init() {
 		converter = new CurrencyConverter();
 	}
