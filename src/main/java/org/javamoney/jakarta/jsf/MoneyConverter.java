@@ -51,8 +51,5 @@ public class MoneyConverter implements Converter {
 		}
 		return value.toString();
 	}
-	
-	
-	
 
 }

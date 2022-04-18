@@ -24,6 +24,8 @@ import javax.money.MonetaryAmount;
 
 import org.javamoney.moneta.FastMoney;
 
+import java.util.Objects;
+
 /**
  * Converter to {@link MonetaryAmount} using the {@link FastMoney} implementation using {@link FastMoney#toString()}
  * and {@link FastMoney#parse(CharSequence)}
