@@ -65,7 +65,7 @@ private FastMoneyConverter converter;
 	
 	@Test
 	public void shouldReturnsCurrencyCodeWhenHasCurrency() {
-		MonetaryAmount expectedMoney = FastMoney.parse(monetaryValue);
+		FastMoney expectedMoney = FastMoney.parse(monetaryValue);
 		String result = converter.getAsString(context, component, expectedMoney);
 		assertNotNull(result);
 		assertEquals(expectedMoney.toString(), result);

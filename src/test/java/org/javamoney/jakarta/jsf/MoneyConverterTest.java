@@ -65,7 +65,7 @@ public class MoneyConverterTest {
 	
 	@Test
 	public void shouldReturnsCurrencyCodeWhenHasCurrency() {
-		MonetaryAmount expectedMoney = Money.parse(monetaryValue);
+		Money expectedMoney = Money.parse(monetaryValue);
 		String result = converter.getAsString(context, component, expectedMoney);
 		assertNotNull(result);
 		assertEquals(expectedMoney.toString(), result);
