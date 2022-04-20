@@ -17,5 +17,35 @@
 
 package org.javamoney.jakarta.jsf;
 
-public class MonetaryAmountConverter {
+import org.javamoney.moneta.Money;
+
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
+import javax.money.MonetaryAmount;
+
+/**
+ * Converter to {@link MonetaryAmount} using the {@link Money} implementation using {@link Money#toString()}
+ * and {@link Money#parse(CharSequence)}
+ *
+ * @author Otavio Santana
+ */
+@FacesConverter(" org.javamoney.jakarta.jsf.MonetaryAmountConverter")
+public class MonetaryAmountConverter implements Converter<MonetaryAmount> {
+    @Override
+    public MonetaryAmount getAsObject(FacesContext context, UIComponent component, String value) {
+        if (value == null) {
+            return null;
+        }
+        return Money.parse(value);
+    }
+
+    @Override
+    public String getAsString(FacesContext context, UIComponent component, MonetaryAmount value) {
+        if (value == null) {
+            return null;
+        }
+        return value.toString();
+    }
 }
