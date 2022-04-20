@@ -102,7 +102,7 @@ public class MonetaryAmountMaxTest {
 				      validator.validate(currency);
 
 		assertEquals(1, constraintViolations.size());
-		   assertEquals("{org.javamoney.midas.constraints.monetaryMax}",
+		   assertEquals("{org.javamoney.jakarta.validator.monetary.max}",
 				   constraintViolations.iterator().next().getMessageTemplate());
 	}
 

@@ -41,7 +41,7 @@ import javax.validation.Payload;
 @Documented
 public @interface MonetaryMin {
 
-	String message() default "{org.javamoney.midas.constraints.monetaryMin}";
+	String message() default "{org.javamoney.jakarta.validator.monetary.min}";
 
     Class<?>[] groups() default {};
 

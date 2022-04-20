@@ -114,7 +114,7 @@ public class CurrencyRejectedValidatorTest {
 				      validator.validate(currency);
 
 		   assertEquals(1, constraintViolations.size());
-		   assertEquals("{org.javamoney.midas.constraints.currencyRejected}", constraintViolations.iterator().next().getMessageTemplate());
+		   assertEquals("{org.javamoney.jakarta.validator.currency.rejected}", constraintViolations.iterator().next().getMessageTemplate());
 	   }
 
 	private static class CurrencyValidator {

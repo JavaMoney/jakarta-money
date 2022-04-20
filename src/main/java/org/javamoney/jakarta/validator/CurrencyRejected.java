@@ -40,7 +40,7 @@ import javax.validation.Payload;
 @Documented
 public @interface CurrencyRejected {
 
-	String message() default "{org.javamoney.midas.constraints.currencyRejected}";
+	String message() default "{org.javamoney.jakarta.validator.currency.rejected}";
 
     Class<?>[] groups() default {};
 

@@ -41,7 +41,7 @@ import javax.validation.Payload;
 @Documented
 public @interface MonetaryMax {
 
-	String message() default "{org.javamoney.midas.constraints.monetaryMax}";
+	String message() default "{org.javamoney.jakarta.validator.monetary.max}";
 
     Class<?>[] groups() default {};
 

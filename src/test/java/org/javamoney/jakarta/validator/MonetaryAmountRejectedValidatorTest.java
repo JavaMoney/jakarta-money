@@ -120,7 +120,7 @@ public class MonetaryAmountRejectedValidatorTest {
 				      validator.validate(currency);
 
 		   assertEquals(1, constraintViolations.size());
-		   assertEquals("{org.javamoney.midas.constraints.currencyRejected}",
+		   assertEquals("{org.javamoney.jakarta.validator.currency.rejected}",
 				   constraintViolations.iterator().next().getMessageTemplate());
 	   }
 

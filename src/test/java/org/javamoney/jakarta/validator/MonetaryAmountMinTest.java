@@ -102,7 +102,7 @@ public class MonetaryAmountMinTest {
 				      validator.validate(currency);
 
 		assertEquals(1, constraintViolations.size());
-		   assertEquals("{org.javamoney.midas.constraints.monetaryMin}",
+		   assertEquals("{org.javamoney.jakarta.validator.monetary.min}",
 				   constraintViolations.iterator().next().getMessageTemplate());
 	}
 
