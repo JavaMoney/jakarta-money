@@ -33,10 +33,10 @@ import java.util.Objects;
  * @author Werner Keil
  */
 @FacesConverter("money.midas.FastMoneyConverter")
-public class FastMoneyConverter implements Converter {
+public class FastMoneyConverter implements Converter<FastMoney> {
 
 	@Override
-	public Object getAsObject(FacesContext context, UIComponent component,
+	public FastMoney getAsObject(FacesContext context, UIComponent component,
 			String value) {
 		
 		if (value == null) {
@@ -47,7 +47,7 @@ public class FastMoneyConverter implements Converter {
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component,
-			Object value) {
+							  FastMoney value) {
 		if (value == null) {
 			return null;
 		}

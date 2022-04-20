@@ -31,10 +31,10 @@ import javax.money.Monetary;
  * @author Werner Keil
  */
 @FacesConverter("money.midas.CurrencyConverter")
-public class CurrencyConverter implements Converter {
+public class CurrencyConverter implements Converter<CurrencyUnit> {
 
 	@Override
-	public Object getAsObject(FacesContext context, UIComponent component,
+	public CurrencyUnit getAsObject(FacesContext context, UIComponent component,
 			String value) {
 
 		if (value == null) {
@@ -45,7 +45,7 @@ public class CurrencyConverter implements Converter {
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component,
-			Object value) {
+							  CurrencyUnit value) {
 		if (value == null) {
 			return null;
 		}
