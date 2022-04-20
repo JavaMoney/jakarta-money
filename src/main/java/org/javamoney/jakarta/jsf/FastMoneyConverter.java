@@ -16,15 +16,13 @@
  */
 package org.javamoney.jakarta.jsf;
 
+import org.javamoney.moneta.FastMoney;
+
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.money.MonetaryAmount;
-
-import org.javamoney.moneta.FastMoney;
-
-import java.util.Objects;
 
 /**
  * Converter to {@link MonetaryAmount} using the {@link FastMoney} implementation using {@link FastMoney#toString()}

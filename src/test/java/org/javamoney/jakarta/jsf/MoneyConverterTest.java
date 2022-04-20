@@ -22,7 +22,6 @@ import org.junit.jupiter.api.Test;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
-import javax.money.MonetaryAmount;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
