@@ -30,7 +30,7 @@ import org.javamoney.moneta.Money;
  * @author Otavio Santana
  * @author Werner Keil
  */
-@FacesConverter("money.midas.MoneyConverter")
+@FacesConverter(" org.javamoney.jakarta.jsf.MoneyConverter")
 public class MoneyConverter implements Converter<Money> {
 
 	@Override

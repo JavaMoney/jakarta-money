@@ -30,7 +30,7 @@ import javax.money.Monetary;
  * @author Otavio Santana
  * @author Werner Keil
  */
-@FacesConverter("money.midas.CurrencyConverter")
+@FacesConverter(" org.javamoney.jakarta.jsf.CurrencyConverter")
 public class CurrencyConverter implements Converter<CurrencyUnit> {
 
 	@Override

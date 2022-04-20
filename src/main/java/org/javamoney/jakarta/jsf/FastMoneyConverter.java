@@ -32,7 +32,7 @@ import java.util.Objects;
  * @author Otavio Santana
  * @author Werner Keil
  */
-@FacesConverter("money.midas.FastMoneyConverter")
+@FacesConverter(" org.javamoney.jakarta.jsf.FastMoneyConverter")
 public class FastMoneyConverter implements Converter<FastMoney> {
 
 	@Override
