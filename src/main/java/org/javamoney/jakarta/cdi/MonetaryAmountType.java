@@ -34,5 +34,5 @@ public enum MonetaryAmountType {
     /**
      * the {@link  org.javamoney.moneta.function.RoundedMoneyProducer}
      */
-    ROUNDED_MONEY;
+    ROUNDED_MONEY
 }
