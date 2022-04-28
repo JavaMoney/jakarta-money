@@ -67,7 +67,7 @@ public class CurrencyAcceptedValidatorTest {
 
 
 	@Test
-	public void shouldReturnsTrueWhenCurrecyIsNull() {
+	public void shouldReturnsTrueWhenCurrencyIsNull() {
 		assertTrue(currencyValidator.isValid(null, context));
 	}
 
