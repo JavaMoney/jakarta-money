@@ -72,7 +72,7 @@ public class MonetaryAmountMinTest {
 	}
 
 	@Test
-	public void shouldReturnsTrueWhenIsGreatherThanMinimumValue() {
+	public void shouldReturnsTrueWhenIsGreaterThanMinimumValue() {
 		when(monetaryMin.value()).thenReturn("10.00");
 		monetaryValidator.initialize(monetaryMin);
 		assertTrue(monetaryValidator.isValid(money, context));
