@@ -20,6 +20,9 @@ package org.javamoney.jakarta.jsf;
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -27,12 +30,15 @@ import javax.money.MonetaryAmount;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class MonetaryAmountConverterTest {
 
     private MonetaryAmountConverter converter;
 
+    @Mock
     private FacesContext context;
 
+    @Mock
     private UIComponent component;
 
     private final String monetaryValue = "BRL 10";
