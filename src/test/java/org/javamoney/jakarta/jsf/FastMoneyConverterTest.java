@@ -19,6 +19,9 @@ package org.javamoney.jakarta.jsf;
 import org.javamoney.moneta.FastMoney;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -27,46 +30,49 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+@ExtendWith(MockitoExtension.class)
 public class FastMoneyConverterTest {
 
-private FastMoneyConverter converter;
-	
-	private FacesContext context;
-	
-	private UIComponent component;
-	
-	private final String monetaryValue = "BRL 10";
-	
-	@BeforeEach
-	public void init() {
-		converter = new FastMoneyConverter();
-	}
-	
-	@Test
-	public void shouldReturnsNullWhenStringIsNull() {
-		Object result = converter.getAsObject(context, component, null);
-		assertNull(result);
-	}
-	
-	@Test
-	public void shouldReturnsCurrencyWhenHasCurrencyCode() {
-		Object result = converter.getAsObject(context, component, monetaryValue);
-		assertNotNull(result);
-		FastMoney currency = FastMoney.class.cast(result);
-		assertEquals(FastMoney.parse(monetaryValue), currency);
-	}
-	
-	@Test
-	public void shouldReturnsNullWhenObjectIsNull() {
-		Object result = converter.getAsString(context, component, null);
-		assertNull(result);
-	}
-	
-	@Test
-	public void shouldReturnsCurrencyCodeWhenHasCurrency() {
-		FastMoney expectedMoney = FastMoney.parse(monetaryValue);
-		String result = converter.getAsString(context, component, expectedMoney);
-		assertNotNull(result);
-		assertEquals(expectedMoney.toString(), result);
-	}
+
+    private FastMoneyConverter converter;
+
+    @Mock
+    private FacesContext context;
+    @Mock
+    private UIComponent component;
+
+    private final String monetaryValue = "BRL 10";
+
+    @BeforeEach
+    public void init() {
+        converter = new FastMoneyConverter();
+    }
+
+    @Test
+    public void shouldReturnsNullWhenStringIsNull() {
+        Object result = converter.getAsObject(context, component, null);
+        assertNull(result);
+    }
+
+    @Test
+    public void shouldReturnsCurrencyWhenHasCurrencyCode() {
+        Object result = converter.getAsObject(context, component, monetaryValue);
+        assertNotNull(result);
+        FastMoney currency = FastMoney.class.cast(result);
+        assertEquals(FastMoney.parse(monetaryValue), currency);
+    }
+
+    @Test
+    public void shouldReturnsNullWhenObjectIsNull() {
+        Object result = converter.getAsString(context, component, null);
+        assertNull(result);
+    }
+
+    @Test
+    public void shouldReturnsCurrencyCodeWhenHasCurrency() {
+        FastMoney expectedMoney = FastMoney.parse(monetaryValue);
+        String result = converter.getAsString(context, component, expectedMoney);
+        assertNotNull(result);
+        assertEquals(expectedMoney.toString(), result);
+    }
 }
