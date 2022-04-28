@@ -75,7 +75,7 @@ public class CurrencyConverterTest {
 		CurrencyUnit expectedCurrency = Monetary.getCurrency(currencyCode);
 		String result = converter.getAsString(context, component, expectedCurrency);
 		assertNotNull(result);
-		assertEquals(Monetary.getCurrency(currencyCode).toString(), result.toString());
+		assertEquals(Monetary.getCurrency(currencyCode).toString(), result);
 	}
 
 }
