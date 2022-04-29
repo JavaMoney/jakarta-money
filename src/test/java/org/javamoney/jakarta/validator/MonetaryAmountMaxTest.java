@@ -125,7 +125,7 @@ public class MonetaryAmountMaxTest {
 	private static class MonetaryAmountValidator {
 
 		@MonetaryMax("10.12")
-		private MonetaryAmount money;
+		private final MonetaryAmount money;
 
 		MonetaryAmountValidator(MonetaryAmount money) {
 			this.money = money;

@@ -57,7 +57,7 @@ public class MonetaryAmountAcceptedValidatorTest {
 	@Mock
 	private CurrencyAccepted constraintAnnotation;
 
-	private ConstraintValidatorContext context = null;
+	private final ConstraintValidatorContext context = null;
 
 	@BeforeEach
 	public void setup() {
@@ -127,7 +127,7 @@ public class MonetaryAmountAcceptedValidatorTest {
 	private static class MonetaryAmountValidator {
 
 		@CurrencyAccepted(currencies = "BRL")
-		private MonetaryAmount money;
+		private final MonetaryAmount money;
 
 		MonetaryAmountValidator(MonetaryAmount money) {
 			this.money = money;

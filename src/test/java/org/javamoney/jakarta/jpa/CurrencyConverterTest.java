@@ -32,7 +32,7 @@ public class CurrencyConverterTest {
 	
 	private CurrencyConverter currencyConverter;
 	
-	private CurrencyUnit currencyUnit = Monetary.getCurrency("BRL");
+	private final CurrencyUnit currencyUnit = Monetary.getCurrency("BRL");
 	
 	@BeforeEach
 	public void setup() {

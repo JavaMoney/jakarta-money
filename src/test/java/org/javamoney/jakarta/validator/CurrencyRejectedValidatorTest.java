@@ -120,7 +120,7 @@ public class CurrencyRejectedValidatorTest {
 	private static class CurrencyValidator {
 
 		@CurrencyRejected(currencies = "BRL")
-		private CurrencyUnit currencyUnit;
+		private final CurrencyUnit currencyUnit;
 
 		CurrencyValidator(CurrencyUnit currencyUnit) {
 			this.currencyUnit = currencyUnit;
