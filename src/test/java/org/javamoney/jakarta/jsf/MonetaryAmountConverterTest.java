@@ -30,15 +30,12 @@ import javax.money.MonetaryAmount;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@ExtendWith(MockitoExtension.class)
 class MonetaryAmountConverterTest {
 
     private MonetaryAmountConverter converter;
 
-    @Mock
     private FacesContext context;
 
-    @Mock
     private UIComponent component;
 
     private final String monetaryValue = "BRL 10";

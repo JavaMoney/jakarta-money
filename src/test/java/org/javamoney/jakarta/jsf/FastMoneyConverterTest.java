@@ -30,15 +30,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-@ExtendWith(MockitoExtension.class)
 public class FastMoneyConverterTest {
 
 
     private FastMoneyConverter converter;
 
-    @Mock
     private FacesContext context;
-    @Mock
+
     private UIComponent component;
 
     private final String monetaryValue = "BRL 10";
