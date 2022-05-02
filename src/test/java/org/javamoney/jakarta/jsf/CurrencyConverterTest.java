@@ -53,7 +53,7 @@ public class CurrencyConverterTest {
 	public void shouldReturnsCurrencyWhenHasCurrencyCode() {
 		Object result = converter.getAsObject(context, component, currencyCode);
 		assertNotNull(result);
-		CurrencyUnit currency = CurrencyUnit.class.cast(result);
+		CurrencyUnit currency = (CurrencyUnit) result;
 		assertEquals(Monetary.getCurrency(currencyCode), currency);
 	}
 	

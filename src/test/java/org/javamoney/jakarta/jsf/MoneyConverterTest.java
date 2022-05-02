@@ -52,7 +52,7 @@ public class MoneyConverterTest {
 	public void shouldReturnsCurrencyWhenHasCurrencyCode() {
 		Object result = converter.getAsObject(context, component, monetaryValue);
 		assertNotNull(result);
-		Money currency = Money.class.cast(result);
+		Money currency = (Money) result;
 		assertEquals(Money.parse(monetaryValue), currency);
 	}
 	
