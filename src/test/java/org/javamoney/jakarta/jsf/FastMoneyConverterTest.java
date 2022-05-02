@@ -51,9 +51,9 @@ public class FastMoneyConverterTest {
 
     @Test
     public void shouldReturnsCurrencyWhenHasCurrencyCode() {
-        Object result = converter.getAsObject(context, component, monetaryValue);
+        FastMoney result = converter.getAsObject(context, component, monetaryValue);
         assertNotNull(result);
-        FastMoney currency = (FastMoney) result;
+        FastMoney currency = result;
         assertEquals(FastMoney.parse(monetaryValue), currency);
     }
 
