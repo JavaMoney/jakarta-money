@@ -64,9 +64,8 @@ class CurrencyUnitConverterProviderTest {
     }
 
     private ParamConverter<CurrencyUnit> getConverter() {
-        ParamConverter<CurrencyUnit> converter = this.converterProvider.getConverter(CurrencyUnit.class,
+        return this.converterProvider.getConverter(CurrencyUnit.class,
                 null, null);
-        return converter;
     }
 
 }
