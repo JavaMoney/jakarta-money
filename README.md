@@ -19,6 +19,7 @@ The API brings some libraries that is split by specification:
 * CDI
 * JPA
 * JSF
+* XML bind (jaxb)
 
 ## Bean Validator
 
@@ -119,4 +120,16 @@ private CurrencyUnit currency;
 
 //
 MonetaryAmount amount = producer.create(currency, 10);
+```
+
+## XML Bind
+
+Jakarta XML Bind provides an XmlAdapter which can be used to transform custom classes to String and vice versa.
+
+```java
+@XmlJavaTypeAdapter(CurrencyUnitAdapter.class)
+private CurrencyUnit currency;
+
+@XmlJavaTypeAdapter(MonetaryAmountAdapter.class)
+private MonetaryAmount money;
 ```
