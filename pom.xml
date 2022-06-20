@@ -56,6 +56,12 @@
             <version>2.0.2</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.0</version>
+            <scope>provided</scope>
+        </dependency>
         <!--Test-->
         <dependency>
             <groupId>org.jboss.weld.se</groupId>
@@ -147,6 +153,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                    <systemPropertyVariables>
+                      <java.util.logging.config.file>src/test/resources/logging.properties</java.util.logging.config.file>
+                    </systemPropertyVariables>
+                </configuration>
             </plugin>
         </plugins>
     </build>
